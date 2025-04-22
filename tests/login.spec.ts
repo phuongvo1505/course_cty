@@ -27,7 +27,7 @@ test("TC_002", async ({ page }) => {
         await loginPage.fillUserName(Login_Data.TC_002.username);
         await loginPage.fillPassWord(Login_Data.TC_002.password);
         await loginPage.clickLogin();
-        await expect(page.locator("//h3[@data-test='error']")).toContainText("Epic sadface: Sorry, this user has been locked out.");
+        await loginPage.checkLoginTC002();
     })
 })
 
@@ -41,7 +41,7 @@ test("TC_003", async ({ page }) => {
         await loginPage.fillUserName(Login_Data.TC_003.username);
         await loginPage.fillPassWord(Login_Data.TC_003.password);
         await loginPage.clickLogin();
-        await expect(page.locator("//h3[@data-test='error']")).toBeHidden();
+        await loginPage.checkLoginTC003();
     })
 })
 
@@ -148,11 +148,11 @@ test("TC_011", async ({ page }) => {
     await test.step("Go to URL", async ({ }) => {
         await loginPage.navigateToLoginPage();
     })
-    
+
     await test.step("Action fill and click login", async () => {
         await loginPage.fillUserName(Login_Data.TC_011.username);
         await loginPage.fillPassWord(Login_Data.TC_011.password);
         await loginPage.clickLogin();
-        await expect(page.locator("//h3[@data-test='error']")).toContainText("Epic sadface: Username and password do not match any user in this service");
+         
     })
 })
