@@ -1,0 +1,1 @@
+export const TWO_SECONDS_TIMEOUT=2000;
